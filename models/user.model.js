@@ -1,25 +1,23 @@
-var Sequelize = require('sequelize');
+var Sequelize = require("sequelize");
 var DataTypes = Sequelize;
 module.exports = (sequelize, Sequelize) => {
-    const user = sequelize.define("users", {    
+  const user = sequelize.define("users", {
     username: {
-        type: DataTypes.STRING
+      type: DataTypes.STRING,
     },
     email: {
-      type: DataTypes.STRING
-  },
-    password: {
-        type: DataTypes.STRING
+      type: DataTypes.STRING,
     },
-    code : {
-      type: DataTypes.STRING
+    password: {
+      type: DataTypes.STRING,
+    },
+    code: {
+      type: DataTypes.STRING,
     },
     isActive: {
-      type: DataTypes.BOOLEAN
-    }
-   
-  });    
-    
-    return user;
+      type: DataTypes.BOOLEAN,
+    },
+  });
+
+  return user;
 };
-    

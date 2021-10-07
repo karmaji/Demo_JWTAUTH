@@ -10,7 +10,7 @@ async function mail(req, code) {
     service: "Gmail",
     auth: {
       user: "emsdemo04@gmail.com",
-      pass: "",
+      pass: "Emaster@123456#",
     },
   });
 

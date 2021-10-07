@@ -2,7 +2,6 @@ const jsonwebtoken = require("jsonwebtoken");
 
 const jwt = {
   issueJwt: async (user) => {
-    console.log(user);
     let payload = {
       id: user.id,
     };
@@ -10,9 +9,7 @@ const jwt = {
     const options = {
       expiresIn: "365d",
     };
-    console.log(options);
     const jwtToken = await jsonwebtoken.sign(payload, "secret", options);
-    console.log(jwtToken);
     return jwtToken;
   },
 

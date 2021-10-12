@@ -9,13 +9,13 @@ async function mail(req, code) {
   const transport = nodemailer.createTransport({
     service: "Gmail",
     auth: {
-      user: "emsdemo04@gmail.com",
-      pass: "Emaster@123456#",
+      user: "", //email from which you want to send verification code.
+      pass: "", //password of above given email
     },
   });
 
   let mailDetails = {
-    from: "emsdemo04@gmail.com",
+    from: "", //email from which you want to send verification code.
     to: req.body.email,
     subject: "Test mail",
     text: `Account varification code ${code}`,

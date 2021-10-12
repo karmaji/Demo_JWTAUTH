@@ -34,6 +34,7 @@ async function mail(req, code) {
 module.exports.addUser = async (req, res) => {
   try {
     var code = Math.floor(Math.random() * 10000) + 1;
+    
 
     let { username, email, password } = req.body;
     let user = {
@@ -46,7 +47,7 @@ module.exports.addUser = async (req, res) => {
     let userCreate = await User.create(user);
     let confirm = await mail(req, code);
 
-    res.status(200).json({
+    res.status(201).json({
       success: true,
       message: "user added successfully",
       code: code,
@@ -193,3 +194,4 @@ module.exports.deleteUser = async (req, res) => {
     });
   }
 };
+

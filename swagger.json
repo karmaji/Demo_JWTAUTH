@@ -1,0 +1,253 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "User CRUD Operations",
+        "description": "CRUD operations with email varification and JWT authentication",
+        "license": {
+            "name": "MIT",
+            "url": "https://opensource.org/licenses/MIT"
+        }
+    },
+    "host": "localhost:8080",
+    "basePath": "/api/v1/",
+    "tags": [
+        {
+            "name": "Users",
+            "description": "API for users"
+        }
+    ],
+    "schemes": [
+        "http"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/addUser": {
+            "post": {
+                "tags": [
+                    "addUser"
+                ],
+                "description": "Create user",
+                "parameters": [
+                    {
+                        "name": "user",
+                        "in": "body",
+                        "description": "Create User",
+                        "schema": {
+                            "$ref": "#/definitions/addUser"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "New user is created",
+                        "schema": {
+                            "$ref": "#/definitions/addUser"
+                        }
+                    }
+                }
+            }
+        },
+        "/editUser": {
+            "put": {
+                "tags": [
+                    "editUser"
+                ],
+                "description": "Edit user",
+                "parameters": [
+                    {
+                        "name": "user",
+                        "in": "body",
+                        "description": "Edit User",
+                        "schema": {
+                            "$ref": "#/definitions/editUser"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Edit user",
+                        "schema": {
+                            "$ref": "#/definitions/editUser"
+                        }
+                    }
+                }
+            }
+        },
+        "/varifyUser": {
+            "put": {
+                "tags": [
+                    "varifyUser"
+                ],
+                "description": "varify user",
+                "parameters": [
+                    {
+                        "name": "user",
+                        "in": "body",
+                        "description": "varify User",
+                        "schema": {
+                            "$ref": "#/definitions/varifyUser"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Edit user",
+                        "schema": {
+                            "$ref": "#/definitions/editUser"
+                        }
+                    }
+                }
+            }
+        },
+        "/deleteUser": {
+            "post": {
+                "tags": [
+                    "deleteUser"
+                ],
+                "description": "Delete user",
+                "parameters": [
+                    {
+                        "name": "user",
+                        "in": "body",
+                        "description": "Delete User",
+                        "schema": {
+                            "$ref": "#/definitions/deleteUser"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Delete user",
+                        "schema": {
+                            "$ref": "#/definitions/deleteUser"
+                        }
+                    }
+                }
+            }
+        },
+        "/login": {
+            "post": {
+                "tags": [
+                    "login"
+                ],
+                "description": "login",
+                "parameters": [
+                    {
+                        "name": "user",
+                        "in": "body",
+                        "description": "login",
+                        "schema": {
+                            "$ref": "#/definitions/login"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "login",
+                        "schema": {
+                            "$ref": "#/definitions/login"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "addUser": {
+            "required": [
+                "username",
+                "email",
+                "password"
+            ],
+            "properties": {
+                "username": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                }
+            }
+        },
+        "editUser": {
+            "required": [
+                "id",
+                "username",
+                "email",
+                "password"
+            ],
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "username": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                }
+            }
+        },
+        "varifyUser": {
+            "required": [
+                "email",
+                "code"
+            ],
+            "properties": {
+                "email": {
+                    "type": "string"
+                },
+                "code": {
+                    "type": "string"
+                }
+            }
+        },
+        "deleteUser": {
+            "required": [
+                "id"
+            ],
+            "properties": {
+                "id": {
+                    "type": "integer"
+                }
+            }
+        },
+        "login": {
+            "required": [
+                "username",
+                "password"
+            ],
+            "properties": {
+                "username": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

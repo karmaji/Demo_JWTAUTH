@@ -8,5 +8,7 @@ router.put("/varifyUser", controller.varify);
 router.post("/login", controller.login);
 router.put("/editUser", varifyTokenFn, controller.editUser);
 router.delete("/deleteUser", varifyTokenFn, controller.deleteUser);
+router.post("/hintQuestion/:id", controller.hintAnswer);
+router.post("/resetPassword/:id", controller.resetPassword);
 
 module.exports = router;
